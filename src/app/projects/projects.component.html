@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <h1 class="mt-4">Projects</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-success" routerLink="/company/add">New Project</a>
+            <hr />
+        </div>
+
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th> Id </th>
+                    <th> Title </th>
+                    <th> Description </th>
+                    <th> Actions </th>
+                </tr>
+                <tr *ngFor="let project of projects">
+                    <td>{{project.id}}</td>
+                    <td>
+                        <a routerLink="/project/detail/{{project.id}}">
+                            {{project.title}}
+                        </a>
+                    </td>
+                    <td>
+                        {{project.description}}
+                    </td>
+                    <td width="200">
+                        <a class="btn btn-primary btn-sm" routerLink="/project/detail/{{project.id}}">
+                            View
+                        </a>
+                        &nbsp;
+                        <a class="btn btn-warning btn-sm text-white" routerLink="/project/detail/{{project.id}}">
+                            Edit
+                        </a>
+                        &nbsp;
+                        <a class="btn btn-danger btn-sm text-white">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>

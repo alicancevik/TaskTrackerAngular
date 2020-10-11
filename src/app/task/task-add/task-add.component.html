@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <h1 class="mt-4">Task Add</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="taskAddForm" (ngSubmit)="taskAddSubmit()">
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-user" aria-hidden="true"></i> Title
+                    </label>
+                    <input class="form-control" formControlName="Title" type="text"
+                        placeholder="Enter your Title..." >
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-user" aria-hidden="true"></i> Short Description
+                    </label>
+                    <input class="form-control" formControlName="ShortDescription" type="text"
+                        placeholder="Enter your ShortDescription..." >
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-user" aria-hidden="true"></i> Full Description
+                    </label>
+                    <input class="form-control" formControlName="FullDescription" type="text"
+                        placeholder="Enter your FullDescription..." >
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-user" aria-hidden="true"></i> Project
+                    </label>
+                    <select formControlName="ProjectId" class="form-control" >
+                        <option value="">Select Project</option>
+                        <option *ngFor="let project of projects" value="{{project.id}}">{{project.title}}</option>
+                    </select>
+                    
+                </div>
+
+                Status : {{taskAddForm.valid}}
+
+              
+
+                <div class="form-group float-right">
+                    <button type="submit" class="btn btn-info" >Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

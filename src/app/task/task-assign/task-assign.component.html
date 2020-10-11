@@ -1,0 +1,30 @@
+
+<div class="container-fluid">
+    <h1 class="mt-4">Task Assign</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div *ngIf="ApplicationTask">
+            
+            <form [formGroup]="taskAssignForm" (ngSubmit)="taskAssignSubmit()">
+                <input type="hidden" formControlName="TaskId" value="{{ApplicationTask.id}}"/>
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-user" aria-hidden="true"></i> User Id
+                    </label>
+                    <input class="form-control" formControlName="UserId" type="text"
+                        placeholder="1" >
+                </div>
+
+
+                Status : {{taskAssignForm.valid}}
+              
+
+                <div class="form-group float-right">
+                    <button type="submit" class="btn btn-info" >Assign To User</button>
+                </div>
+            </form>
+
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+body{
+    margin-top:20px;
+    background:#ddd;
+}
+
+.panel{
+    border:1px solid #DDD;
+  
+}
+
+.panel-heading {
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  text-transform: uppercase;
+  color: #535351;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.panel-body{
+    padding:15px;
+}
+
+.tools a:hover {
+  background: #65cea7;
+  color: #ddd;
+}
+
+.tools a {
+  background: #E3E4E8;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #858582;
+  float: left;
+  margin-left: 3px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+ul.goal-progress {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul.goal-progress li {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px dashed #dcdcdc;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+ul.goal-progress li .prog-avatar {
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 25px;
+}
+
+ul.goal-progress li .prog-avatar img {
+  width: 100%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+.progress-bar {
+  box-shadow: none;
+  line-height: 15px;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 11px;
+}
+
+.details-text{
+    padding-top: 9px;
+}

@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <h1 class="mt-4">Dashboard</h1>
+ 
+
+<div class="spinner-grow text-primary" role="status" *ngIf="dashboardDetails == undefined; else dashboardblock">
+    <span class="sr-only">Loading...</span>
+</div>
+
+<ng-template #dashboardblock>
+   <app-dashboard-widget [TotalTask]="dashboardDetails.totalTask" 
+                         [InProgressTask]="dashboardDetails.inProgressTask"
+                         [DoneTask]="dashboardDetails.doneTask"
+                         [CancelledTask]="dashboardDetails.canceledTask">
+    </app-dashboard-widget>
+
+   <app-dashboard-users-widget [LastApplicationUsers]="dashboardDetails.lastApplicationUsers" 
+                               [LastTaskLogs]="dashboardDetails.lastTaskLogs">
+    </app-dashboard-users-widget>
+</ng-template>
+
+</div>
