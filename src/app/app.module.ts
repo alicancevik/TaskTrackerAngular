@@ -31,6 +31,7 @@ import { CompanyService } from './services/company.service';
 import { ApplicationTaskService } from './services/application-task.service';
 import { ProjectService } from './services/project.service';
 import { TaskAssignComponent } from './task/task-assign/task-assign.component';
+import { TaskLogService } from './services/task-log.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { TaskAssignComponent } from './task/task-assign/task-assign.component';
     DashboardService,
     CompanyService,
     ApplicationTaskService,
-    ProjectService
+    ProjectService,
+    TaskLogService
   ],
   bootstrap: [AppComponent]
 })
