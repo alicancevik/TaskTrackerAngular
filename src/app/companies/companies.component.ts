@@ -22,5 +22,6 @@ export class CompaniesComponent implements OnInit {
       this.companies = data;
     });
   }
+  
 
 }
