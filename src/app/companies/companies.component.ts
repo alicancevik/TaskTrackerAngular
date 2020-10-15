@@ -17,11 +17,15 @@ export class CompaniesComponent implements OnInit {
     this.getCompanies();
   }
 
+  save(){
+    
+  }
+
   getCompanies(){
     this.companyService.getCompanies().subscribe(data=>{
       this.companies = data;
     });
   }
-  
+
 
 }
