@@ -13,9 +13,7 @@ export class ApplicationTaskService {
   constructor(private router:Router, private http: HttpClient) { }
 
   getAll() : Observable<Task[]> {
-
     return this.http.get<Task[]>(this.path);
-
   }
 
   getById(taskId:number){

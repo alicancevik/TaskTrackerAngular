@@ -15,4 +15,8 @@ export class TaskLogService {
   getTaskLogs() : Observable<TaskLog[]>{
     return this.http.get<TaskLog[]>(this.path);
   }
+
+  getTaskLogsByTaskId(taskId:number){
+    return this.http.get<TaskLog[]>(this.path + "getbytaskId/"+ taskId); 
+  }
 }
