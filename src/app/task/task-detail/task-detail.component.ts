@@ -13,12 +13,15 @@ import { TaskLogService } from 'src/app/services/task-log.service';
 export class TaskDetailComponent implements OnInit {
 
   taskDetail: Task = new Task();
+  
   taskLogs: TaskLog[] = [];
 
   constructor(private taskService: ApplicationTaskService, private taskLogService: TaskLogService, public route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
     this.getTaskDetail();
+
   }
 
   getTaskDetail() {
