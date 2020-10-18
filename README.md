@@ -1,6 +1,14 @@
 
 ## Working...
 
+## DashBoard
+## Companies List-Add-Detail-Update
+## Projects  List-Add-Detail
+## ApplicationUserGroup List-Add
+## ApplicationUser
+## Tasks List-Add-Detail-Update-TaskLogs-ChangeStatus-AssignToUser
+## TaskLogs List
+
 
 
 # TaskTrackerApp
