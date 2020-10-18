@@ -2,7 +2,7 @@
     <h1 class="mt-4">Project Add</h1>
     <div class="row">
         <div class="col-md-12">
-            <form [formGroup]="projectDetailForm" (ngSubmit)="projectUpdateSubmit()">
+            <form [formGroup]="projectAddForm" (ngSubmit)="projectAddSubmit()">
 
                 <div class="form-group">
                     <label>
@@ -31,7 +31,7 @@
                     
                 </div>
 
-                Status : {{projectDetailForm.valid}}
+                Status : {{projectAddForm.valid}}
 
               
 

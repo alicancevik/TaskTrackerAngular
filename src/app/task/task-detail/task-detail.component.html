@@ -6,11 +6,22 @@
                 <h2>
                         {{taskDetail.title}}
                 </h2>
+                Status: {{taskDetail.taskStatusId}}
+        </div>
+
+        <div class="col-md-3">
+            <h3>Change Status Selected: {{selectedStatus}} </h3>
+            <select class="form-control" [(ngModel)] ="selectedStatus">
+                <option value="0" selected="true">Select Status</option>
+                <option *ngFor="let status of taskStatuses" value="{{status.id}}">{{status.title}}</option>
+            </select>
+            
+            <button class="btn btn-success" (click)="changeStatus()">Change</button>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mt-5">
             <h2>Task Logs</h2>
 
             <table class="table table-bordered">

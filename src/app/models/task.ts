@@ -26,4 +26,10 @@ export class TaskAssignDto
     taskId :number;
     userId :number;
 }
+
+export class TaskStatusUpdateDto
+{
+    taskId   :number;
+    statusId :number;
+}
    

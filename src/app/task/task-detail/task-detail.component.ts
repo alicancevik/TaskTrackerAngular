@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Task } from 'src/app/models/task';
+import { Task, TaskStatusUpdateDto } from 'src/app/models/task';
 import { TaskLog } from 'src/app/models/task-log';
+import { TaskStatus } from 'src/app/models/task-status';
 import { ApplicationTaskService } from 'src/app/services/application-task.service';
 import { TaskLogService } from 'src/app/services/task-log.service';
+import { TaskStatusService } from 'src/app/services/task-status.service';
 
 @Component({
   selector: 'app-task-detail',
@@ -12,14 +14,19 @@ import { TaskLogService } from 'src/app/services/task-log.service';
 })
 export class TaskDetailComponent implements OnInit {
 
+  selectedStatus: string = "0";
+
   taskDetail: Task = new Task();
 
   taskLogs: TaskLog[] = [];
 
-  constructor(private taskService: ApplicationTaskService, private taskLogService: TaskLogService, public route: ActivatedRoute) { }
+  taskStatuses: TaskStatus[] = [];
+
+  constructor(private taskService: ApplicationTaskService, private taskLogService: TaskLogService, private taskStatusService:TaskStatusService , public route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getTaskDetail();
+    this.getTaskStatuses();
   }
 
   getTaskDetail() {
@@ -32,6 +39,25 @@ export class TaskDetailComponent implements OnInit {
       });
 
     });
+  }
+
+  getTaskStatuses(){
+    this.taskStatusService.getTaskStatuses().subscribe(data=>{
+      this.taskStatuses = data;
+    });
+  }
+
+  changeStatus(){
+    if((this.selectedStatus && parseInt(this.selectedStatus) > 0 ) && this.taskDetail)
+    {
+      let taskStatusUpdate: TaskStatusUpdateDto = new TaskStatusUpdateDto();
+      taskStatusUpdate.statusId = parseInt(this.selectedStatus);  
+      taskStatusUpdate.taskId = this.taskDetail.id;  
+
+      this.taskService.changeStatus(taskStatusUpdate);
+
+      location.reload(); // page refresh for status change
+    }
   }
 
 }

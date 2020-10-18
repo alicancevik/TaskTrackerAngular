@@ -34,6 +34,7 @@ import { TaskAssignComponent } from './task/task-assign/task-assign.component';
 import { TaskLogService } from './services/task-log.service';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { TaskLogDetailComponent } from './task-log/task-log-detail/task-log-detail.component';
+import { ProjectAddComponent } from './projects/project-add/project-add.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { TaskLogDetailComponent } from './task-log/task-log-detail/task-log-deta
     TaskAssignComponent,
     ProjectDetailComponent,
     TaskLogDetailComponent,
+    ProjectAddComponent,
   ],
   imports: [
     BrowserModule,

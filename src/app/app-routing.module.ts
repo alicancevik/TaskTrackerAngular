@@ -6,6 +6,7 @@ import { CompaniesComponent } from './companies/companies.component';
 import { CompanyAddComponent } from './companies/company-add/company-add.component';
 import { CompanyDetailComponent } from './companies/company-detail/company-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProjectAddComponent } from './projects/project-add/project-add.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TaskLogComponent } from './task-log/task-log.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:"dashboard", component:DashboardComponent},
   {path:"usergroups", component:ApplicationUserGroupComponent},
   {path:"projects", component:ProjectsComponent},
+  {path:"projects/add", component:ProjectAddComponent},
   {path:"project/detail/:id", component:ProjectDetailComponent},
   {path:"companies", component:CompaniesComponent},
   {path:"company/add", component:CompanyAddComponent},

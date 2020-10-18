@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Task, TaskAddDto, TaskAssignDto } from '../models/task';
+import { Task, TaskAddDto, TaskAssignDto, TaskStatusUpdateDto } from '../models/task';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,12 @@ export class ApplicationTaskService {
 
   assign(task:TaskAssignDto){
     this.http.put(this.path + "assign",task).subscribe(d=>{});
+  }
+
+  changeStatus(task:TaskStatusUpdateDto){
+    let changeUrl: string = this.path + "changestatus";
+
+    this.http.post(changeUrl,task).subscribe(d=>{});
   }
 
 }
