@@ -9,7 +9,7 @@
 ## Tasks List-Add-Detail-Update-TaskLogs-ChangeStatus-AssignToUser
 ## TaskLogs List
 
-<img src="http://alicancevik.com/github-images/dashboard.png" alt="Dashboard" width="400"/>
+<img src="http://alicancevik.com/github-images/dashboard.png" alt="Dashboard" width="500"/>
 
 # TaskTrackerApp
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
