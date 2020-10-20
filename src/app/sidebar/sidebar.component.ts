@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn = false;
+
+  constructor(private localStorageService:LocalStorageService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.localStorageService.get("access-token");
+
+    console.log("sidebar > this.isLoggedIn");
+    console.log(this.isLoggedIn);
   }
 
 }

@@ -6,6 +6,8 @@ import { CompaniesComponent } from './companies/companies.component';
 import { CompanyAddComponent } from './companies/company-add/company-add.component';
 import { CompanyDetailComponent } from './companies/company-detail/company-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginGuard } from './guards/login-guard';
+import { LoginFormComponent } from './login-form/login-form.component';
 import { ProjectAddComponent } from './projects/project-add/project-add.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -18,22 +20,23 @@ import { TaskComponent } from './task/task.component';
 
 
 const routes: Routes = [
-  {path:"", component:DashboardComponent, pathMatch:"full"},
-  {path:"dashboard", component:DashboardComponent},
-  {path:"usergroups", component:ApplicationUserGroupComponent},
-  {path:"projects", component:ProjectsComponent},
-  {path:"projects/add", component:ProjectAddComponent},
-  {path:"project/detail/:id", component:ProjectDetailComponent},
-  {path:"companies", component:CompaniesComponent},
-  {path:"company/add", component:CompanyAddComponent},
-  {path:"company/detail/:id", component:CompanyDetailComponent},
-  {path:"tasks", component:TaskComponent},
-  {path:"tasks/detail/:id", component:TaskDetailComponent},
-  {path:"tasks/add", component:TaskAddComponent},
-  {path:"tasks/assign", component:TaskAssignComponent},
-  {path:"tasklogs", component:TaskLogComponent},
-  {path:"users", component:ApplicationUserComponent},
-  {path:"taskstatuses", component:TaskStatusComponent},
+  {path:"", component:DashboardComponent, pathMatch:"full", canActivate: [LoginGuard]},
+  {path:"dashboard", component:DashboardComponent, canActivate: [LoginGuard] },
+  {path:"usergroups", component:ApplicationUserGroupComponent, canActivate: [LoginGuard] },
+  {path:"projects", component:ProjectsComponent, canActivate: [LoginGuard] },
+  {path:"projects/add", component:ProjectAddComponent, canActivate: [LoginGuard] },
+  {path:"project/detail/:id", component:ProjectDetailComponent, canActivate: [LoginGuard] },
+  {path:"companies", component:CompaniesComponent, canActivate: [LoginGuard] },
+  {path:"company/add", component:CompanyAddComponent, canActivate: [LoginGuard] },
+  {path:"company/detail/:id", component:CompanyDetailComponent, canActivate: [LoginGuard] },
+  {path:"tasks", component:TaskComponent, canActivate: [LoginGuard] },
+  {path:"tasks/detail/:id", component:TaskDetailComponent, canActivate: [LoginGuard] },
+  {path:"tasks/add", component:TaskAddComponent, canActivate: [LoginGuard] },
+  {path:"tasks/assign", component:TaskAssignComponent, canActivate: [LoginGuard] },
+  {path:"tasklogs", component:TaskLogComponent, canActivate: [LoginGuard] },
+  {path:"users", component:ApplicationUserComponent, canActivate: [LoginGuard] },
+  {path:"taskstatuses", component:TaskStatusComponent, canActivate: [LoginGuard] },
+  {path:"login", component:LoginFormComponent}
 ];
 
 @NgModule({

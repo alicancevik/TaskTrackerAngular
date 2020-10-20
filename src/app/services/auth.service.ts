@@ -26,8 +26,8 @@ export class AuthService {
 
   login(username: string, password: string) {
     let accessLoginDto: AccessLoginDto = new AccessLoginDto();
-    accessLoginDto.userName = "alicancevik";
-    accessLoginDto.password = "1234";
+    accessLoginDto.userName = username;
+    accessLoginDto.password = password;
 
     return this.http.post<any>("http://localhost:59749/api/users/login", accessLoginDto)
       .pipe(map(user => {

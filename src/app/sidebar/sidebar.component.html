@@ -1,6 +1,6 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading"> TaskTrackerApp </div>
-    <div class="list-group list-group-flush">
+    <div class="list-group list-group-flush" *ngIf="isLoggedIn">
       <a routerLink="dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
       <a routerLink="companies" class="list-group-item list-group-item-action bg-light">Companies</a>
       <a routerLink="projects" class="list-group-item list-group-item-action bg-light">Projects</a>

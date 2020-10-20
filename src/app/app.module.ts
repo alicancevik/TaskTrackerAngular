@@ -35,6 +35,8 @@ import { TaskLogService } from './services/task-log.service';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { TaskLogDetailComponent } from './task-log/task-log-detail/task-log-detail.component';
 import { ProjectAddComponent } from './projects/project-add/project-add.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { LoginGuard } from './guards/login-guard';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,7 @@ import { ProjectAddComponent } from './projects/project-add/project-add.componen
     ProjectDetailComponent,
     TaskLogDetailComponent,
     ProjectAddComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +80,8 @@ import { ProjectAddComponent } from './projects/project-add/project-add.componen
     CompanyService,
     ApplicationTaskService,
     ProjectService,
-    TaskLogService
+    TaskLogService,
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })
