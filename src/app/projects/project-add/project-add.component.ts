@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AccessTokenDto } from 'src/app/models/access-token-dto';
 import { Company } from 'src/app/models/company';
 import { Project } from 'src/app/models/project';
+import { AuthService } from 'src/app/services/auth.service';
 import { CompanyService } from 'src/app/services/company.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
@@ -16,19 +19,19 @@ export class ProjectAddComponent implements OnInit {
     Title: new FormControl('', Validators.required),
     Description: new FormControl(''),
     CompanyId: new FormControl('', Validators.required),
-    
+
   });
 
-  companies:Company[] = [];
+  companies: Company[] = [];
 
-  constructor(private projectService: ProjectService, private companyService: CompanyService) { }
+  constructor(private projectService: ProjectService, private companyService: CompanyService, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
     this.getCompanies();
   }
 
-  projectAddSubmit(){
-    
+  projectAddSubmit() {
+
     let project: Project = new Project();
     project.title = this.projectAddForm.value.Title;
     project.description = this.projectAddForm.value.Description;
@@ -36,11 +39,11 @@ export class ProjectAddComponent implements OnInit {
 
     this.projectService.add(project);
 
-    
+
   }
 
-  getCompanies(){
-    this.companyService.getCompanies().subscribe(data=>{
+  getCompanies() {
+    this.companyService.getCompanies().subscribe(data => {
       this.companies = data;
     })
   }
