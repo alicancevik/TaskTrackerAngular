@@ -41,4 +41,18 @@ export class LoginFormComponent implements OnInit {
         });
   }
 
+  resetPassword(){
+    this.authService.resetPassword(this.username, this.password)
+      .pipe(first())
+      .subscribe(
+        data => {
+          window.location.reload();
+        },
+        error => {
+          this.error = error;
+          this.loading = false;
+          alert(error);
+        });
+  }
+
 }

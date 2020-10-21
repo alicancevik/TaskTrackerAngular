@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { AccessLoginDto } from '../models/access-login-dto';
+import { AccessLoginDto, ResetPasswordDto } from '../models/access-login-dto';
 import { AccessTokenDto } from '../models/access-token-dto';
 import { map } from 'rxjs/operators';
 import { LocalStorageService } from './local-storage.service';
@@ -40,6 +40,14 @@ export class AuthService {
 
         return user;
       }));
+  }
+
+  resetPassword(username: string, password: string) {
+    let resetPasswordDto: ResetPasswordDto = new ResetPasswordDto();
+    resetPasswordDto.userName = username;
+    resetPasswordDto.password = password;
+
+    return this.http.post<any>("http://localhost:59749/api/users/resetpassword", resetPasswordDto);
   }
 
   logout() {

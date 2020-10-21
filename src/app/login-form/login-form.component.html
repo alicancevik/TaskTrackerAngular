@@ -1,7 +1,7 @@
 <div class="container-fluid  mt-4">
     <div class="row">
-        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-        <div class="col-md-8 col-lg-6">
+        
+        <div class="col-md-6">
             <div class="login d-flex align-items-center py-5">
                 <div class="container">
                     <div class="row">
@@ -27,9 +27,51 @@
                             <button
                                 class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                                 type="button" (click)="signIn()">Sign in</button>
+
+                                <button
+                                class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                                type="button" (click)="resetPassword()">Reset Password</button>
                             <div class="text-center">
                                 <a class="small" href="#">Forgot password?</a></div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-lg-8 mx-auto">
+                            <h3 class="login-heading mb-4">Register</h3>
+
+                            <div class="form-label-group">
+                                <label for="inputEmail">Email address</label>
+                                <input type="text" [(ngModel)]="username" class="form-control" placeholder="Username"
+                                    required autofocus>
+                            </div>
+
+                            <div class="form-label-group">
+                                <label for="inputEmail">Username</label>
+                                <input type="text"  class="form-control" placeholder="Username"
+                                    required autofocus>
+                            </div>
+
+                            <div class="form-label-group">
+                                <label for="inputPassword">Password</label>
+                                <input type="password" [(ngModel)]="password" class="form-control"
+                                    placeholder="Password" required>
+                            </div>
+
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Approve Policy</label>
+                            </div>
+                            <button
+                                class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                                type="button" (click)="signIn()">Register</button>
                         </div>
                     </div>
                 </div>
