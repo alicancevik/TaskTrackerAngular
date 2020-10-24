@@ -37,6 +37,7 @@ import { TaskLogDetailComponent } from './task-log/task-log-detail/task-log-deta
 import { ProjectAddComponent } from './projects/project-add/project-add.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { LoginGuard } from './guards/login-guard';
+import { TaskStatusAddComponent } from './task-status/task-status-add/task-status-add.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { LoginGuard } from './guards/login-guard';
     TaskLogDetailComponent,
     ProjectAddComponent,
     LoginFormComponent,
+    TaskStatusAddComponent,
   ],
   imports: [
     BrowserModule,
