@@ -1,3 +1,4 @@
+import { ApplicationUserGroup } from './application-user-group';
 
 
 export class ApplicationUser{
@@ -5,4 +6,5 @@ export class ApplicationUser{
     username:string;
     emailAddress:string;
     applicationUserGroupId:number;
+    applicationUserGroup:ApplicationUserGroup;
 }

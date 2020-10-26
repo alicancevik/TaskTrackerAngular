@@ -6,60 +6,70 @@
             <hr />
         </div>
         <div class="col-md-12">
-        <table class="table table-bordered">
-            <tr>
-                <th> Id </th>
-                <th> Title </th>
-                <th> Short Description </th>
-                <th> Full Description </th>
-                <th> Create Date </th>
-                <th> Assing User </th>
-                <th> Actions </th>
-            </tr>
+            <table class="table table-bordered">
+                <tr>
+                    <th> Id </th>
+                    <th> Title </th>
+                    <th> Short Description </th>
+                    <th> Full Description </th>
+                    <th> Create Date </th>
+                    <th> Assing User </th>
+                    <th> Actions </th>
+                </tr>
 
-            <tr *ngFor="let task of tasks">
-                <td> {{task.id}}</td>
-                <td> {{task.title}}</td>
-                <td> {{task.shortDescription}}</td>
-                <td> {{task.fullDescription}}</td>
-                <td> {{task.createDate | date}}</td>
-                <td> 
-                    <div *ngIf="task.assignUserId == null || task.assignUserId == undefined">
-                        
-                        <app-task-assign [ApplicationTask]="task"></app-task-assign> 
-                    </div>
-                    {{task.assignUserId}}
+                <tr *ngFor="let task of tasks">
+                    <td> {{task.id}}</td>
+                    <td> 
+                        <a routerLink="/tasks/detail/{{task.id}}">
+                            {{task.title}}
+                        </a>
+                    </td>
+                    <td> {{task.shortDescription}}</td>
+                    <td> {{task.fullDescription}}</td>
+                    <td> {{task.createDate | date}}</td>
+                    <td>
 
-                </td>
-                <td width="200">
-                    <button class="btn btn-primary btn-sm" routerLink="/tasks/detail/{{task.id}}">
-                        View
-                    </button>
-                    &nbsp;
-                    <button class="btn btn-warning btn-sm" routerLink="/tasks/detail/{{task.id}}">
-                        Edit
-                    </button>
-                    &nbsp;
-                    <button class="btn btn-danger btn-sm" routerLink="/task/delete/{{task.id}}">
-                        Delete
-                    </button>
-                </td>
-            </tr>
+                        <div *ngIf="task.assignUser == null || task.assignUser == undefined">
 
-            <tr>
-                <td colspan="7">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
-                </td>
-            </tr>
-        </table>
+                            <app-task-assign [ApplicationTask]="task"></app-task-assign>
+                        </div>
+
+                        <div *ngIf="task.assignUser">
+                            <a routerLink="/users/detail/{{task.assignUser.id}}">
+                                {{task.assignUser.username}}
+                            </a>
+                        </div>
+
+                    </td>
+                    <td width="200">
+                        <button class="btn btn-primary btn-sm" routerLink="/tasks/detail/{{task.id}}">
+                            View
+                        </button>
+                        &nbsp;
+                        <button class="btn btn-warning btn-sm" routerLink="/tasks/detail/{{task.id}}">
+                            Edit
+                        </button>
+                        &nbsp;
+                        <button class="btn btn-danger btn-sm" routerLink="/task/delete/{{task.id}}">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="7">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

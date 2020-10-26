@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +38,8 @@ import { ProjectAddComponent } from './projects/project-add/project-add.componen
 import { LoginFormComponent } from './login-form/login-form.component';
 import { LoginGuard } from './guards/login-guard';
 import { TaskStatusAddComponent } from './task-status/task-status-add/task-status-add.component';
+import { AutocompleteComboboxComponent } from './autocomplete-combobox/autocomplete-combobox.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -68,13 +70,15 @@ import { TaskStatusAddComponent } from './task-status/task-status-add/task-statu
     ProjectAddComponent,
     LoginFormComponent,
     TaskStatusAddComponent,
+    AutocompleteComboboxComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgSelectModule
   ],
   providers: [
     ApplicationUserGroupService,
@@ -85,6 +89,7 @@ import { TaskStatusAddComponent } from './task-status/task-status-add/task-statu
     TaskLogService,
     LoginGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

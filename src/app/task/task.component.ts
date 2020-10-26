@@ -10,6 +10,7 @@ import { ApplicationTaskService } from '../services/application-task.service';
 export class TaskComponent implements OnInit {
 
   tasks:Task[]= [];
+  
 
   constructor(private applicationTaskService:ApplicationTaskService) { }
 

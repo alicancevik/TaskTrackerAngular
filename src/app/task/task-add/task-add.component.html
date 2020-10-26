@@ -28,7 +28,7 @@
                         placeholder="Enter your FullDescription..." >
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>
                         <i class="fas fa-user" aria-hidden="true"></i> Project
                     </label>
@@ -37,7 +37,24 @@
                         <option *ngFor="let project of projects" value="{{project.id}}">{{project.title}}</option>
                     </select>
                     
+                </div> -->
+
+                <div class="form-group">
+                    <!-- <app-autocomplete-combobox [list]="projectTitles"></app-autocomplete-combobox> -->
+                    <ng-select formControlName="ProjectId"  
+                               [items]="projects"
+                               bindLabel="title"
+                               bindValue="id"
+                               appendTo="body"
+                               placeholder="Select project"
+                               [(ngModel)]="selectedProjectId"
+                               [virtualScroll]="true">
+                    </ng-select>
+    
+                    selected:{{selectedProjectId}}
                 </div>
+
+           
 
                 Status : {{taskAddForm.valid}}
 
@@ -47,6 +64,8 @@
                     <button type="submit" class="btn btn-info" >Save</button>
                 </div>
             </form>
+
+           
         </div>
     </div>
 </div>

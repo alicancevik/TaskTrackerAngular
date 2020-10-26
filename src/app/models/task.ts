@@ -1,3 +1,4 @@
+import { ApplicationUser } from './application-user';
 
 
 export class Task{
@@ -9,6 +10,7 @@ export class Task{
     projectId:number;
     taskStatusId:number;
     assignUserId?:number;
+    assignUser:ApplicationUser;
 }
 
 export class TaskAddDto{
