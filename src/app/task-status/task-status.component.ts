@@ -11,32 +11,49 @@ import { TaskStatusService } from '../services/task-status.service';
 })
 export class TaskStatusComponent implements OnInit {
 
-  taskStatuses:TaskStatus[] = [];
-  
+  taskStatuses: TaskStatus[] = [];
+
   taskStatusAddForm = new FormGroup({
     title: new FormControl('', Validators.required),
   });
 
-  constructor(private taskStatusService:TaskStatusService, private router:Router) { }
+  constructor(private taskStatusService: TaskStatusService, private router: Router) { }
 
   ngOnInit(): void {
     this.getTaskStatuses();
   }
 
-  getTaskStatuses(){
-    this.taskStatusService.getTaskStatuses().subscribe(result=>{
+  getTaskStatuses() {
+    this.taskStatusService.getTaskStatuses().subscribe(result => {
       this.taskStatuses = result;
     });
   }
 
-  taskStatusAddSubmit(){
-    if(!this.taskStatusAddForm.valid){
+  taskStatusAddSubmit() {
+    if (!this.taskStatusAddForm.valid) {
       alert("Gerekli alanları doldurmanız gerekmektedir!");
       return;
     }
 
     this.taskStatusService.add(this.taskStatusAddForm.value.title);
     window.location.reload();
+  }
+
+  deleteTaskStatus(taskStatus: TaskStatus) {
+    if (confirm("Are you sure to delete '" + taskStatus.title + "'")) {
+      
+      this.taskStatusService.delete(taskStatus.id);
+      this.removeFromList(taskStatus.id);
+    }
+    else
+    {
+      console.log("confirm no");
+    }
+
+  }
+
+  removeFromList(taskStatusId: number) {
+    this.taskStatuses = this.taskStatuses.filter(item => item.id != taskStatusId);
   }
 
 }

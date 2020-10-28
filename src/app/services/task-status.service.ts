@@ -26,4 +26,8 @@ export class TaskStatusService {
     });
   }
 
+  delete(taskStatusId:number){
+    this.http.delete(this.path + "delete/"+ taskStatusId).subscribe(d=>{});
+  }
+
 }
